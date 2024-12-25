@@ -1,5 +1,3 @@
-"use client";
-
 const Users = async () => {
   const url = await fetch('https://jsonplaceholder.typicode.com/users');
   const res = await url.json();
