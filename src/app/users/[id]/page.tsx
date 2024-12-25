@@ -1,7 +1,13 @@
 import React from 'react';
 import { MapPin, Phone, Globe, Building2, Mail } from 'lucide-react';
 
-const UserProfile = async(props:any) => {
+interface UsersProps {
+  params: {
+    id: string;
+  };
+}
+
+const UserProfile = async(props:UsersProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/users/${props.params.id}`)
   const userData = await url.json()
 

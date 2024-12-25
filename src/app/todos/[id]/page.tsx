@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Todos = async(props:any) => {
+interface TodosProps {
+  params: {
+    id: string;
+  };
+}
+
+const Todos = async(props:TodosProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/users/${props.params.id}/todos`)
   const todos = await url.json()
 

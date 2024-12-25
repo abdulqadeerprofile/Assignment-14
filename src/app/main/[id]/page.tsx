@@ -1,6 +1,12 @@
 import React from 'react';
 
-const PostPage = async(props:any) => {
+interface MainProps {
+  params: {
+    id: string;
+  };
+}
+
+const PostPage = async(props:MainProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/posts/${props.params.id}/comments`)
   const comments = await url.json()
   const url2 = await fetch(`https://jsonplaceholder.typicode.com/posts/${props.params.id}`)
@@ -18,7 +24,7 @@ const PostPage = async(props:any) => {
       <section className="bg-white rounded-lg shadow p-6">
         <h2 className="text-xl font-bold mb-6">Comments ({comments.length})</h2>
         <div className="space-y-6">
-          {comments.map((comment:any, index:any) => (
+          {comments.map((comment:any, index:number) => (
             <div key={index} className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
                 <span className="text-white font-semibold uppercase">{comment.name[0]}</span>

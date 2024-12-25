@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Albums = async(props:any) => {
+interface AlbumsProps {
+  params: {
+    id: string;
+  };
+}
+
+const Albums = async(props:AlbumsProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/users/${props.params.id}/albums`)
   const albums = await url.json()
 
@@ -8,7 +14,7 @@ const Albums = async(props:any) => {
     <div className="p-6 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-8">Albums</h1>
         <div className="grid gap-6">
-      {albums.map((album: { id: any; title: any; }) => (
+      {albums.map((album: { id: number; title: string; }) => (
           <div 
           key={album.id}
           className="cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:bg-gray-50"

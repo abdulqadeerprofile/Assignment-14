@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Posts = async (props: any) => {
+interface PostsProps {
+  params: {
+    id: string;
+  };
+}
+
+const Posts = async (props: PostsProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/users/${props.params.id}/posts`);
   const posts = await url.json();
 
