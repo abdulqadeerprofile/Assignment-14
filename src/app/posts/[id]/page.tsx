@@ -6,15 +6,22 @@ interface PostsProps {
   };
 }
 
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 const Posts = async (props: PostsProps) => {
   const url = await fetch(`https://jsonplaceholder.typicode.com/users/${props.params.id}/posts`);
-  const posts = await url.json();
+  const posts: Post[] = await url.json();
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Posts</h1>
       <div className="grid gap-6">
-        {posts.map((post: any) => (
+        {posts.map((post) => (
           <a
             href={`/main/${post.id}`}
             key={post.id}

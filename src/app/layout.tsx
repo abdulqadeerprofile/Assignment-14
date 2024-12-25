@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
-import { Inter, Plus_Jakarta_Sans, Sora } from 'next/font/google'
+import { Sora } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const font = Sora({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],

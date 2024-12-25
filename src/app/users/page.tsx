@@ -1,12 +1,20 @@
+import React from 'react';
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
 const Users = async () => {
   const url = await fetch('https://jsonplaceholder.typicode.com/users');
-  const res = await url.json();
+  const res: User[] = await url.json();
 
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-8 text-center">Users</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {res.map((user: any, id: number) => {
+        {res.map((user) => {
           return (
             <div
               key={user.id}
@@ -15,9 +23,9 @@ const Users = async () => {
               {/* User Card Content */}
               <div className="p-6">
                 <div className="flex items-center justify-center mb-4">
-                <div className="h-16 w-16 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
-              {user.name.charAt(0)}
-            </div>
+                  <div className="h-16 w-16 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
+                    {user.name.charAt(0)}
+                  </div>
                 </div>
                 <h2 className="text-xl font-semibold text-center mb-2">{user.name}</h2>
                 <p className="text-gray-600 text-center mb-4">{user.email}</p>
