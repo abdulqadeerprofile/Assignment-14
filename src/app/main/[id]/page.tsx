@@ -41,7 +41,7 @@ const PostPage = async(props: MainProps) => {
           {comments.map((comment) => (
             <div key={comment.id} className="flex items-start gap-4 border-b border-gray-100 pb-4">
               <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-semibold text-lg">{comment.name[0]}</span>
+                <span className="text-white font-semibold text-lg uppercase">{comment.name[0]}</span>
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 mb-1">{comment.name}</p>
